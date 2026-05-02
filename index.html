@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kurmīx - Bebida Funcional</title>
+    <title>Kurmīx - Bebidas Funcionales</title>
     <style>
         :root {
             --azul-oscuro: #023047;
@@ -15,42 +15,80 @@
         body {
             background-color: var(--crema-fondo);
             color: var(--azul-oscuro);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--azul-oscuro);
+            color: white;
+            padding: 3rem 1rem;
             text-align: center;
         }
-        h1 {
-            color: var(--naranja-fuerte);
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2rem;
-            max-width: 600px;
-        }
-        .boton {
-            background-color: var(--naranja-claro);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .boton:hover {
-            background-color: var(--naranja-fuerte);
-        }
+        h1 { color: var(--naranja-claro); margin: 0; font-size: 3.5rem; letter-spacing: 2px; }
+        .container { max-width: 1000px; margin: auto; padding: 2rem; }
+        section { margin-bottom: 4rem; }
+        h2 { color: var(--naranja-fuerte); font-size: 2rem; margin-top: 0; }
+        
+        .hero-section { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .hero-text { flex: 1; min-width: 300px; }
+        
+        .grid-mv { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        
+        .valores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; margin-top: 20px; }
+        .valor-item { padding: 15px; border: 1px solid var(--amarillo); border-radius: 10px; font-weight: bold; }
+        
+        footer { text-align: center; padding: 3rem; background: var(--azul-oscuro); color: white; margin-top: 4rem; }
+        .hecho-en { display: inline-block; border: 2px solid white; padding: 10px 20px; border-radius: 50px; margin-top: 10px; }
     </style>
 </head>
 <body>
+
+<header>
     <h1>Kurm&#363;ix</h1>
-    <p>Energía natural y bienestar con el poder de la cúrcuma y frutas peruanas.</p>
-    <a href="#" class="boton">Próximamente</a>
+    <p>Sabor, frescura y bienestar en cada botella</p>
+</header>
+
+<div class="container">
+    <!-- ¿Quiénes Somos? -->
+    <section class="hero-section">
+        <div class="hero-text">
+            <h2>¿QUIÉNES SOMOS?</h2>
+            <p><strong>KURMIX</strong> es una marca de bebidas funcionales elaboradas a base de ingredientes naturales como la cúrcuma y frutas tropicales. Creamos bebidas tipo néctar que combinan sabor, frescura y bienestar en cada botella.</p>
+            <p>Nacemos en <strong>Ica, Perú</strong>, con el propósito de ofrecer una alternativa más natural para acompañar tu día a día. Creemos en lo simple, en lo real y en el poder de los ingredientes naturales para aportar equilibrio y vitalidad.</p>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="grid-mv">
+        <div class="card">
+            <h2>Misión</h2>
+            <p>Ampliar el acceso a los beneficios de la cúrcuma a través de bebidas funcionales tipo néctar, elaboradas con ingredientes naturales, transparentes y con respaldo científico, que aporten bienestar de forma rica y accesible.</p>
+        </div>
+        <div class="card">
+            <h2>Visión</h2>
+            <p>Ser la marca que transforme la forma de hidratarse en el Perú, convirtiendo la cúrcuma en una experiencia deliciosa, diaria y esencial para una vida activa y equilibrada.</p>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section>
+        <h2 style="text-align: center;">Valores</h2>
+        <div class="valores-grid">
+            <div class="valor-item">Transparencia</div>
+            <div class="valor-item">Rigor y Sinergia</div>
+            <div class="valor-item">Compromiso con el origen</div>
+            <div class="valor-item">Excelencia sensorial</div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="hecho-en">
+        Hecho en Perú – Ica
+    </div>
+</footer>
+
 </body>
 </html>
