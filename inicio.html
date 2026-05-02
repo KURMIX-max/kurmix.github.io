@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KURMIX</title>
+    <title>KURMIX - Bebida Funcional de Cúrcuma</title>
     <!-- Importación de tipografías similares a Crusoe y Donau -->
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -14,13 +14,21 @@
             --naranja-claro: #FFB703; /* Acentos */
             --naranja-fuerte: #FB8500; /* Títulos y botones */
         }
-        body { background-color: var(--crema-fondo);
+        
+        * { box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--crema-fondo);
             color: var(--azul-oscuro);
             font-family: 'Outfit', sans-serif; /* Tipografía para lectura */
             margin: 0;
-            scroll-behavior: smooth;}
-        h1, h2, .donau-font { font-family: 'Lexend Deca', sans-serif; /* Tipografía para títulos */
-            text-transform: uppercase;}
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, .donau-font { 
+            font-family: 'Lexend Deca', sans-serif; /* Tipografía para títulos */
+            text-transform: uppercase;
+        }
 
         header {
             background-color: var(--azul-oscuro);
@@ -30,13 +38,22 @@
         }
 
         header h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--naranja-claro);
             margin: 0;
             letter-spacing: 5px;
         }
+        
+        header p {
+            font-size: 1.1rem;
+            margin: 10px 0 0 0;
+        }
 
-        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        .container { 
+            max-width: 1100px; 
+            margin: auto; 
+            padding: 40px 20px; 
+        }
 
         /* Estilo para los Slides */
         .slide {
@@ -47,6 +64,12 @@
             margin-bottom: 50px;
             text-align: center;
         }
+        
+        .slide h2 {
+            color: var(--azul-oscuro);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
 
         .hero-desc {
             font-size: 1.4rem;
@@ -55,41 +78,81 @@
             margin-bottom: 30px;
         }
 
-        .grid-mv { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .grid-mv { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .grid-mv h3 {
+            color: var(--naranja-fuerte);
+            font-size: 1.3rem;
+        }
+        
+        .grid-mv p {
+            line-height: 1.6;
+            color: var(--azul-oscuro);
+        }
+        
+        @media (max-width: 768px) {
+            .grid-mv {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
         
         .valor-tag {
             display: inline-block;
             background: var(--amarillo);
             padding: 10px 20px;
             border-radius: 50px;
-            margin: 5px;
+            margin: 8px;
             font-weight: bold;
             font-size: 0.9rem;
+            color: var(--azul-oscuro);
         }
 
         /* Sección Sabores con Imágenes */
         .sabores-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
+            margin-top: 30px;
         }
 
         .sabor-card {
             background: var(--crema-fondo);
-            border: 2px solid var(--naranja-claro);
+            border: 3px solid var(--naranja-claro);
             padding: 20px;
             border-radius: 15px;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .sabor-card:hover { transform: translateY(-10px); }
+        .sabor-card:hover { 
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(251, 133, 0, 0.2);
+        }
 
         .sabor-card img {
             width: 100%;
             height: 250px;
-            object-fit: contain; /* Para que la botella no se corte */
+            object-fit: contain;
             margin-bottom: 15px;
             border-radius: 10px;
+            background: white;
+        }
+        
+        .sabor-card h3 {
+            color: var(--naranja-fuerte);
+            font-size: 1.2rem;
+            margin: 15px 0 10px 0;
+        }
+        
+        .sabor-card p {
+            color: var(--azul-oscuro);
+            margin: 0;
         }
 
         .btn-ig {
@@ -101,9 +164,35 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        
+        .btn-ig:hover {
+            background: var(--naranja-claro);
+            transform: scale(1.05);
         }
 
-        footer { text-align: center; padding: 40px; background: var(--azul-oscuro); color: white; }
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            background: var(--azul-oscuro); 
+            color: white;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slide {
+                padding: 25px;
+            }
+            
+            .slide h2 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -119,64 +208,68 @@
     <section class="slide">
         <h2>¿Quiénes Somos?</h2>
         <p class="hero-desc">Bebida a base de cúrcuma con frutas tropicales</p>
-        <p>KURMIX es una marca de bebidas funcionales elaboradas a base de ingredientes naturales como la cúrcuma y frutas tropicales. Creamos bebidas tipo néctar que combinan sabor, frescura y bienestar en cada botella.</p>
+        <p>KURMIX es una marca de bebidas funcionales elaboradas a base de ingredientes naturales como la cúrcuma y frutas tropicales. Creamos bebidas tipo néctar que combinan sabor, frescura y bienestar en cada sorbo. Nuestra misión es llevar los beneficios de la naturaleza a tu vida diaria, con trasparencia y calidad garantizada.</p>
         
         <div class="grid-mv">
             <div>
                 <h3>Misión</h3>
-                <p>Ampliar el acceso a los beneficios de la cúrcuma a través de bebidas funcionales tipo néctar, elaboradas con ingredientes naturales, transparentes y con respaldo científico.</p>
+                <p>Ampliar el acceso a los beneficios de la cúrcuma a través de bebidas funcionales tipo néctar, elaboradas con ingredientes naturales, transparentes y con respaldo científico que generen impacto positivo en la salud y bienestar de nuestros consumidores.</p>
             </div>
             <div>
                 <h3>Visión</h3>
-                <p>Ser la marca que transforme la forma de hidratarse en el Perú, convirtiendo la cúrcuma en una experiencia deliciosa, diaria y esencial para una vida activa y equilibrada.</p>
+                <p>Ser la marca que transforme la forma de hidratarse en el Perú, convirtiendo la cúrcuma en una experiencia deliciosa, diaria y esencial para una vida activa y equilibrada. Posicionarnos como referente de innovación en bebidas funcionales a nivel latinoamericano.</p>
             </div>
         </div>
 
         <div style="margin-top: 20px;">
             <h3>Nuestros Valores</h3>
-            <span class="valor-tag">Transparencia</span>
-            <span class="valor-tag">Rigor y sinergía</span>
-            <span class="valor-tag">Compromiso con el origen</span>
-            <span class="valor-tag">Excelencia sensorial</span>
+            <div>
+                <span class="valor-tag">Transparencia</span>
+                <span class="valor-tag">Rigor y sinergía</span>
+                <span class="valor-tag">Compromiso con el origen</span>
+                <span class="valor-tag">Excelencia sensorial</span>
+            </div>
         </div>
     </section>
 
     <!-- Slide Sabores -->
     <section class="slide">
         <h2>Nuestras Combinaciones</h2>
+        <p>Descubre nuestros sabores únicos, cada uno pensado para ofrecerte una experiencia diferente</p>
         <div class="sabores-grid">
             <!-- Sabor 1 -->
             <div class="sabor-card">
-                <img src="mango.png" alt="Cúrcuma + Mango">
+                <img src="mango.png" alt="Cúrcuma + Mango - Bebida funcional">
                 <h3>Cúrcuma + Mango</h3>
-                <p>Naturalmente dulce y refrescante.</p>
+                <p>Naturalmente dulce y refrescante. Una combinación tropical que despierta tus sentidos.</p>
             </div>
             <!-- Sabor 2 -->
             <div class="sabor-card">
-                <img src="maracuya.png" alt="Cúrcuma + Maracuya">
+                <img src="maracuya.png" alt="Cúrcuma + Maracuya - Bebida funcional">
                 <h3>Cúrcuma + Maracuya</h3>
-                <p>El toque ácido perfecto para tu bienestar.</p>
+                <p>El toque ácido perfecto para tu bienestar. Energía y vitalidad en cada sorbo.</p>
             </div>
             <!-- Sabor 3 -->
             <div class="sabor-card">
-                <img src="pina.png" alt="Cúrcuma + Piña">
+                <img src="pina.png" alt="Cúrcuma + Piña - Bebida funcional">
                 <h3>Cúrcuma + Piña</h3>
-                <p>Energía tropical en cada botella.</p>
+                <p>Energía tropical en cada botella. Fresco, potente y deliciosamente saludable.</p>
             </div>
         </div>
     </section>
 
     <!-- Redes Sociales -->
-    <section style="text-align: center;">
+    <section style="text-align: center; margin-top: 60px;">
         <h2>Únete a nuestra comunidad</h2>
+        <p>Síguenos en nuestras redes sociales para conocer más sobre KURMIX</p>
         <a href="https://www.instagram.com/kurmixpe/" class="btn-ig" target="_blank">Instagram @kurmixpe</a>
     </section>
 
 </div>
 
 <footer>
-    <p>KURMIX - Hecho en Perú</p>
+    <p>&copy; 2026 KURMIX - Bebida Funcional. Hecho en Perú con amor 🇵🇪</p>
 </footer>
 
 </body>
-</html> 
+</html>
