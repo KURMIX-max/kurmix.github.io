@@ -35,6 +35,7 @@
             padding: 40px 20px;
             text-align: center;
             color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
@@ -63,12 +64,38 @@
             box-shadow: 0 10px 30px rgba(2, 48, 71, 0.1);
             margin-bottom: 50px;
             text-align: center;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .slide h2 {
             color: var(--azul-oscuro);
             font-size: 2rem;
             margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .slide h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--naranja-claro), var(--amarillo));
+            border-radius: 2px;
         }
 
         .hero-desc {
@@ -86,14 +113,23 @@
             text-align: left;
         }
         
+        .grid-mv > div {
+            padding: 20px;
+            background: var(--crema-fondo);
+            border-radius: 10px;
+            border-left: 4px solid var(--naranja-claro);
+        }
+        
         .grid-mv h3 {
             color: var(--naranja-fuerte);
             font-size: 1.3rem;
+            margin-top: 0;
         }
         
         .grid-mv p {
             line-height: 1.6;
             color: var(--azul-oscuro);
+            margin: 0;
         }
         
         @media (max-width: 768px) {
@@ -101,17 +137,37 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            
+            .grid-mv > div {
+                border-left: none;
+                border-top: 4px solid var(--naranja-claro);
+                text-align: center;
+            }
+        }
+        
+        .valores-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .valor-tag {
             display: inline-block;
             background: var(--amarillo);
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 50px;
-            margin: 8px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--azul-oscuro);
+            box-shadow: 0 4px 10px rgba(252, 206, 65, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .valor-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(252, 206, 65, 0.35);
         }
 
         /* Sección Sabores con Imágenes */
@@ -153,23 +209,43 @@
         .sabor-card p {
             color: var(--azul-oscuro);
             margin: 0;
+            line-height: 1.5;
         }
 
         .btn-ig {
             display: inline-block;
-            background: var(--naranja-fuerte);
+            background: linear-gradient(135deg, var(--naranja-fuerte), var(--naranja-claro));
             color: white;
             padding: 15px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(251, 133, 0, 0.2);
         }
         
         .btn-ig:hover {
-            background: var(--naranja-claro);
+            background: linear-gradient(135deg, var(--naranja-claro), var(--naranja-fuerte));
             transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(251, 133, 0, 0.4);
+        }
+
+        .comunidad-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(2, 48, 71, 0.05), rgba(251, 133, 0, 0.05));
+            border-radius: 15px;
+        }
+        
+        .comunidad-section h2 {
+            color: var(--azul-oscuro);
+        }
+        
+        .comunidad-section p {
+            color: var(--azul-oscuro);
+            font-size: 1.1rem;
         }
 
         footer { 
@@ -178,11 +254,17 @@
             background: var(--azul-oscuro); 
             color: white;
             margin-top: 60px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
         }
         
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+            
+            header p {
+                font-size: 1rem;
             }
             
             .slide {
@@ -191,6 +273,14 @@
             
             .slide h2 {
                 font-size: 1.5rem;
+            }
+            
+            .comunidad-section {
+                padding: 25px;
+            }
+            
+            .hero-desc {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -208,22 +298,22 @@
     <section class="slide">
         <h2>¿Quiénes Somos?</h2>
         <p class="hero-desc">Bebida a base de cúrcuma con frutas tropicales</p>
-        <p>KURMIX es una marca de bebidas funcionales elaboradas a base de ingredientes naturales como la cúrcuma y frutas tropicales. Creamos bebidas tipo néctar que combinan sabor, frescura y bienestar en cada sorbo. Nuestra misión es llevar los beneficios de la naturaleza a tu vida diaria, con trasparencia y calidad garantizada.</p>
+        <p>KURMIX es una marca de bebidas funcionales elaboradas a base de ingredientes naturales como la cúrcuma y frutas tropicales. Creamos bebidas tipo néctar que combinan sabor, frescura y beneficios para tu bienestar.</p>
         
         <div class="grid-mv">
             <div>
                 <h3>Misión</h3>
-                <p>Ampliar el acceso a los beneficios de la cúrcuma a través de bebidas funcionales tipo néctar, elaboradas con ingredientes naturales, transparentes y con respaldo científico que generen impacto positivo en la salud y bienestar de nuestros consumidores.</p>
+                <p>Ampliar el acceso a los beneficios de la cúrcuma a través de bebidas funcionales tipo néctar, elaboradas con ingredientes naturales, transparentes y con respaldo científico.</p>
             </div>
             <div>
                 <h3>Visión</h3>
-                <p>Ser la marca que transforme la forma de hidratarse en el Perú, convirtiendo la cúrcuma en una experiencia deliciosa, diaria y esencial para una vida activa y equilibrada. Posicionarnos como referente de innovación en bebidas funcionales a nivel latinoamericano.</p>
+                <p>Ser la marca que transforme la forma de hidratarse en el Perú, convirtiendo la cúrcuma en una experiencia deliciosa, diaria y esencial para una vida activa y equilibrada.</p>
             </div>
         </div>
 
-        <div style="margin-top: 20px;">
+        <div style="margin-top: 30px;">
             <h3>Nuestros Valores</h3>
-            <div>
+            <div class="valores-container">
                 <span class="valor-tag">Transparencia</span>
                 <span class="valor-tag">Rigor y sinergía</span>
                 <span class="valor-tag">Compromiso con el origen</span>
@@ -259,10 +349,10 @@
     </section>
 
     <!-- Redes Sociales -->
-    <section style="text-align: center; margin-top: 60px;">
+    <section class="comunidad-section">
         <h2>Únete a nuestra comunidad</h2>
         <p>Síguenos en nuestras redes sociales para conocer más sobre KURMIX</p>
-        <a href="https://www.instagram.com/kurmixpe/" class="btn-ig" target="_blank">Instagram @kurmixpe</a>
+        <a href="https://www.instagram.com/kurmixpe/" class="btn-ig" target="_blank">📱 Instagram @kurmixpe</a>
     </section>
 
 </div>
